@@ -1,12 +1,14 @@
 "use client";
 
 import Image from "next/image";
-import { FaGithub, FaLinkedin, FaEnvelope } from "react-icons/fa";
+import { FaGithub, FaLinkedin, FaEnvelope, FaChevronRight, FaChevronLeft } from "react-icons/fa";
 import { useState } from "react";
 import emailjs from '@emailjs/browser';
 
 export default function Home() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [showGallery, setShowGallery] = useState(false);
+  const [currentPhoto, setCurrentPhoto] = useState(0);
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -15,9 +17,24 @@ export default function Home() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState({ type: '', message: '' });
 
+  const photos = [
+    "/images/foto_perfil.png",
+    "/images/FotoSkate.jpg",
+    "/images/FotoTocando.png",
+    "/images/FotoTrekking.jpg",
+  ];
+
+  const nextPhoto = () => {
+    setCurrentPhoto((prev) => (prev + 1) % photos.length);
+  };
+
+  const prevPhoto = () => {
+    setCurrentPhoto((prev) => (prev - 1 + photos.length) % photos.length);
+  };
+
   // Recargar página al hacer click en el logo
   const handleLogoClick = () => {
-    window.location.reload();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -157,7 +174,7 @@ export default function Home() {
         </section>
 
         {/* About Me Section */}
-        <section id="about" className="scroll-mt-20 md:scroll-mt-38 w-full flex flex-col md:flex-row items-center justify-center gap-12 px-4 pb-32 -mt-40">
+        <section id="about" className="scroll-mt-20 md:scroll-mt-23 w-full flex flex-col md:flex-row items-center justify-center gap-12 px-4 pb-32 -mt-40">
           <div className="md:w-1/2 text-left">
             <h3 className="text-xl font-mono text-[#64ffda] mb-4">Sobre mí</h3>
             <p className="text-lg text-slate-300 mb-4">
@@ -165,6 +182,9 @@ export default function Home() {
             </p>
             <p className="text-lg text-slate-400">
             Me destaco por mi mirada creativa, mi capacidad para integrarme a equipos colaborativos y por mantener siempre una actitud de mejora continua. Mi objetivo es seguir creciendo, asumir nuevos desafíos y, en el futuro, emprender con soluciones que aporten valor real y hagan la tecnología más cercana y útil para las personas.
+            </p>
+            <p className="text-lg text-slate-400">
+            Además de la tecnología, encuentro inspiración en la música, la naturaleza y el deporte, que me ayudan a mantener el equilibrio, liberar ideas y alimentar mi creatividad. Me gusta conectar con personas auténticas, aprender de distintas áreas y disfrutar tanto de una buena conversación como de un reto técnico.
             </p>
             <div className="mt-6">
               <h4 className="text-[#64ffda] text-base font-mono mb-3 text-center">Habilidades</h4>
@@ -187,13 +207,39 @@ export default function Home() {
               {/* Marco con la foto */}
               <div className="relative w-48 h-48 md:w-64 md:h-64 rounded-xl overflow-hidden border-2 border-[#64ffda] bg-[#0a192f] shadow-lg transition-all duration-300 group-hover:-translate-y-2 group-hover:-translate-x-2 group-hover:scale-105 group-hover:shadow-[0_8px_24px_#64ffda99]">
                 <Image
-                  src="/images/foto_perfil.png"
+                  src={photos[currentPhoto]}
                   alt="Benjamín García-Huidobro"
                   fill
-                  className="object-cover"
+                  className="object-cover transition-opacity duration-300"
                   priority
                   sizes="(max-width: 768px) 100vw, 160px"
                 />
+                {/* Botones de navegación */}
+                <div className="absolute inset-0 flex items-center justify-between p-2">
+                  <button
+                    onClick={prevPhoto}
+                    className="bg-[#64ffda] text-[#0a192f] p-2 rounded-full shadow-lg transform transition-all duration-300 hover:scale-110"
+                  >
+                    <FaChevronLeft size={20} />
+                  </button>
+                  <button
+                    onClick={nextPhoto}
+                    className="bg-[#64ffda] text-[#0a192f] p-2 rounded-full shadow-lg transform transition-all duration-300 hover:scale-110"
+                  >
+                    <FaChevronRight size={20} />
+                  </button>
+                </div>
+                {/* Indicador de fotos */}
+                <div className="absolute bottom-2 left-1/2 transform -translate-x-1/2 flex gap-1">
+                  {photos.map((_, index) => (
+                    <div
+                      key={index}
+                      className={`w-2 h-2 rounded-full transition-all duration-300 ${
+                        currentPhoto === index ? 'bg-[#64ffda] scale-125' : 'bg-[#64ffda]/50'
+                      }`}
+                    />
+                  ))}
+                </div>
               </div>
             </div>
           </div>
