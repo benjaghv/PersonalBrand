@@ -31,7 +31,7 @@ export default function Home() {
     try {
       await emailjs.send(
         'service_sjzqh3x',
-        'template_0jg39yh', // Reemplaza con el ID de tu plantilla
+        'template_0jg39yh',
         {
           from_name: formData.name,
           from_email: formData.email,
@@ -47,7 +47,8 @@ export default function Home() {
         message: '¡Mensaje enviado con éxito! Te responderé pronto.'
       });
       setFormData({ name: '', email: '', message: '' });
-    } catch (error) {
+    } catch (err) {
+      console.error('Error al enviar el mensaje:', err);
       setSubmitStatus({
         type: 'error',
         message: 'Hubo un error al enviar el mensaje. Por favor, intenta de nuevo.'
@@ -327,8 +328,8 @@ export default function Home() {
 
         {/* Contact Section */}
         <section id="contact" className="scroll-mt-20 md:scroll-mt-22 w-full flex flex-col items-center justify-center px-4 pb-18 md:mb-5">
-          <h3 className="text-xl font-mono text-[#64ffda] mb-8 text-center">Contacto</h3>
-          <form onSubmit={handleSubmit} className="w-full max-w-lg bg-[#0a192f]/80 rounded-xl p-8 flex flex-col gap-6 border border-[#64ffda] shadow-lg">
+          <h3 className="text-xl font-mono text-[#64ffda] mb-6 md:mb-8 text-center">Contacto</h3>
+          <form onSubmit={handleSubmit} className="w-full max-w-lg bg-[#0a192f]/80 rounded-xl p-4 md:p-8 flex flex-col gap-3 md:gap-6 border border-[#64ffda] shadow-lg">
             <div className="form__group field">
               <input
                 type="text"
@@ -360,7 +361,7 @@ export default function Home() {
                 onChange={handleChange}
                 className="form__field"
                 placeholder="Mensaje"
-                rows={4}
+                rows={3}
                 required
               />
               <label className="form__label">Mensaje</label>
