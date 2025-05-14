@@ -14,9 +14,6 @@ export default function Home() {
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState({ type: '', message: '' });
-  // Pantalla de carga desactivada
-  const loading = false;
-  const showHero = true;
 
   // Recargar página al hacer click en el logo
   const handleLogoClick = () => {
