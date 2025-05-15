@@ -299,7 +299,7 @@ export default function Home() {
             <div className="flex flex-col md:flex-row items-center bg-white/80 rounded-xl shadow-lg overflow-hidden transition-all duration-300 hover:shadow-[0_0_32px_#64ffda99] hover:scale-[1.025]">
               <div className="w-full md:w-1/2 h-48 md:h-56 relative min-w-0">
                 <Image
-                  src="/images/HomePageMeditrack.png"
+                  src="/images/HomePageMediTrack.png"
                   alt="Proyecto 2"
                   fill
                   className="object-cover"
