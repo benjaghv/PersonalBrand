@@ -183,7 +183,7 @@ export default function Home() {
             <p className="text-lg text-slate-400">
             Me destaco por mi mirada creativa, mi capacidad para integrarme a equipos colaborativos y por mantener siempre una actitud de mejora continua. Mi objetivo es seguir creciendo, asumir nuevos desafíos y, en el futuro, emprender con soluciones que aporten valor real y hagan la tecnología más cercana y útil para las personas.
             </p>
-            <p className="text-lg text-slate-400">
+            <p className="text-lg text-slate-400 mt-4">
             Además de la tecnología, encuentro inspiración en la música, la naturaleza y el deporte, que me ayudan a mantener el equilibrio, liberar ideas y alimentar mi creatividad. Me gusta conectar con personas auténticas, aprender de distintas áreas y disfrutar tanto de una buena conversación como de un reto técnico.
             </p>
             <div className="mt-6">
