@@ -13,8 +13,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "My Portfolio",
-  description: "This is my portfolio",
+  title: "Benjamín García-Huidobro | Portfolio",
+  description: "Portfolio de Benjamín García-Huidobro",
 };
 
 export default function RootLayout({

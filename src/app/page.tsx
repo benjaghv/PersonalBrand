@@ -9,6 +9,7 @@ export default function Home() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [showGallery, setShowGallery] = useState(false);
   const [currentPhoto, setCurrentPhoto] = useState(0);
+  const [showPortfolioMessage, setShowPortfolioMessage] = useState(false);
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -18,7 +19,7 @@ export default function Home() {
   const [submitStatus, setSubmitStatus] = useState({ type: '', message: '' });
 
   const photos = [
-    "/images/foto_perfil.png",
+    "/images/foto_perfil.jpg",
     "/images/FotoSkate.jpg",
     "/images/FotoTocando.png",
     "/images/FotoTrekking.jpg",
@@ -187,7 +188,7 @@ export default function Home() {
             Además de la tecnología, encuentro inspiración en la música, la naturaleza y el deporte, que me ayudan a mantener el equilibrio, liberar ideas y alimentar mi creatividad. Me gusta conectar con personas auténticas, aprender de distintas áreas y disfrutar tanto de una buena conversación como de un reto técnico.
             </p>
             <div className="mt-6">
-              <h4 className="text-[#64ffda] text-base font-mono mb-3 text-center">Habilidades</h4>
+              <h4 className="text-[#64ffda] text-base font-mono mb-3 text-center">Conocimientos</h4>
               <div className="flex flex-wrap gap-3 justify-center">
                 {["JavaScript", "TypeScript", "React", "Next.js", "Python", "SQL", "Tailwind CSS", "Git", "React Native"].map((tech) => (
                   <span
@@ -263,7 +264,7 @@ export default function Home() {
             <div className="flex flex-col md:flex-row-reverse items-center bg-white/80 rounded-xl shadow-lg overflow-hidden transition-all duration-300 hover:shadow-[0_0_32px_#64ffda99] hover:scale-[1.025]">
               <div className="w-full md:w-1/2 h-56 md:h-64 relative min-w-0">
                 <Image
-                  src="/images/musicrollsimu.jpg"
+                  src="/images/focusmeetexam.png"
                   alt="Proyecto 1"
                   fill
                   className="object-cover"
@@ -274,14 +275,13 @@ export default function Home() {
                 <h4 className="text-2xl font-bold text-[#0a192f] mb-2">FocusMeet</h4>
                 <p className="text-base text-gray-700 mb-4">Aplicación web potenciada por IA que transforma grabaciones de reuniones en reportes organizados, con resúmenes automáticos, asignación de tareas y decisiones destacadas. Incluye exportación en PDF y opciones para compartir fácilmente. Construida con Next.js, React, TypeScript y Tailwind CSS.</p>
                 <div className="flex gap-4">
-                  <a
-                    href="https://proyecto-real.com"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="px-4 py-2 border border-[#0a192f] text-[#0a192f] rounded-md hover:bg-[#112240] hover:text-[#64ffda] transition-all font-medium"
-                  >
-                    Ver Proyecto
-                  </a>
+                  <span className="px-4 py-2 border border-[#0a192f] text-[#0a192f] rounded-md bg-[#64ffda]/20 font-mono flex items-center gap-2">
+                    <span className="relative flex h-3 w-3">
+                      <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#64ffda] opacity-75"></span>
+                      <span className="relative inline-flex rounded-full h-3 w-3 bg-[#64ffda]"></span>
+                    </span>
+                    En Desarrollo
+                  </span>
                   <a
                     href="https://github.com/benjaghv/focusmeet"
                     target="_blank"
@@ -344,18 +344,30 @@ export default function Home() {
               </div>
               <div className="w-full md:w-1/2 p-6 flex flex-col justify-center min-w-0">
                 <h4 className="text-2xl font-bold text-[#0a192f] mb-2">Portafolio Personal</h4>
-                <p className="text-base text-gray-700 mb-4">Portafolio personal desarrollado con Next.js, Tailwind CSS y TypeScript. Utiliza la API de GitHub para mostrar los proyectos y la información del usuario.</p>
+                <p className="text-base text-gray-700 mb-4">
+  Portfolio personal desarrollado con Next.js, Tailwind CSS y TypeScript. Es totalmente responsive y de código abierto. Puedes verlo en GitHub.
+</p>
+
                 <div className="flex gap-4">
                   <a
-                    href="https://proyecto3.com"
-                    target="_blank"
-                    rel="noopener noreferrer"
+                    href="#"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      setShowPortfolioMessage(true);
+                      setTimeout(() => setShowPortfolioMessage(false), 3000);
+                    }}
                     className="px-4 py-2 border border-[#0a192f] text-[#0a192f] rounded-md hover:bg-[#112240] hover:text-[#64ffda] transition-all font-medium"
                   >
                     Ver Proyecto
                   </a>
+                  {showPortfolioMessage && (
+                    <div className="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-[#64ffda] text-[#0a192f] px-6 py-3 rounded-lg shadow-lg animate-bounce z-50 text-center max-w-[90%] mx-auto">
+                      <p className="text-lg font-mono">¡Lo estás viendo! 😄</p>
+                      
+                    </div>
+                  )}
                   <a
-                    href="https://github.com/usuario/proyecto3"
+                    href="https://github.com/benjaghv/PersonalBrand"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="px-4 py-2 border border-[#0a192f] text-[#0a192f] rounded-md hover:bg-[#112240] hover:text-[#64ffda] transition-all font-medium"
@@ -426,7 +438,7 @@ export default function Home() {
 
         {/* Footer */}
         <footer className="w-full py-6 bg-[#0a192f] text-center text-sm text-[#64ffda] font-mono border-t border-[#112240]">
-          Por Benjamín García-Huidobro © 2025
+          Por Benjamín García-Huidobro © 2025 <img src="https://flagcdn.com/cl.svg" alt="Bandera de Chile" className="w-5 h-4 inline-block ml-2" />
         </footer>
       </main>
 
