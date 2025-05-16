@@ -264,7 +264,7 @@ export default function Home() {
             <div className="flex flex-col md:flex-row-reverse items-center bg-white/80 rounded-xl shadow-lg overflow-hidden transition-all duration-300 hover:shadow-[0_0_32px_#64ffda99] hover:scale-[1.025]">
               <div className="w-full md:w-1/2 h-56 md:h-64 relative min-w-0">
                 <Image
-                  src="/images/focusmeetexam.png"
+                  src="/images/focusmeethome.png"
                   alt="Proyecto 1"
                   fill
                   className="object-cover"
