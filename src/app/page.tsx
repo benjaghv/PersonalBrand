@@ -167,7 +167,7 @@ export default function Home() {
               href="/images/Currículum_Benjamín_GarcíaHuidobro.docx.pdf"
               target="_blank"
               rel="noopener noreferrer"
-              className="px-6 py-3 border border-[#64ffda] text-[#64ffda] rounded-md transition-all font-medium hover:bg-[#112240] hover:scale-105 hover:-translate-y-1 hover:-rotate-3 hover:shadow-[0_8px_24px_#64ffda99]"
+              className="px-6 py-3 border border-[#64ffda] text-[#64ffda] rounded-md transition-all font-medium hover:bg-[#112240] hover:text-[#64ffda] hover:scale-105 hover:-translate-y-1 hover:-rotate-3 hover:shadow-[0_8px_24px_#64ffda99]"
             >
               Ver CV
             </a>
@@ -179,7 +179,7 @@ export default function Home() {
           <div className="md:w-1/2 text-left">
             <h3 className="text-xl font-mono text-[#64ffda] mb-4">Sobre mí</h3>
             <p className="text-lg text-slate-300 mb-4">
-            Profesional con formación ingenieril y capacidades técnicas, de 24 años, apasionado por resolver problemas reales a través del desarrollo de software, aplicaciones web y herramientas digitales que generen impacto. Me enfoco en crear soluciones que mezclen diseño funcional, inteligencia artificial y una buena experiencia de usuario, siempre con la intención de construir algo útil, innovador y con la capacidad de convertirse en una solución integral, lista para implementarse en el mundo real.
+            Profesional con formación ingenieril y capacidades técnicas, de 25 años, apasionado por resolver problemas reales a través del desarrollo de software, aplicaciones web y herramientas digitales que generen impacto. Me enfoco en crear soluciones que mezclen diseño funcional, inteligencia artificial y una buena experiencia de usuario, siempre con la intención de construir algo útil, innovador y con la capacidad de convertirse en una solución integral, lista para implementarse en el mundo real.
             </p>
             <p className="text-lg text-slate-400">
             Me destaco por mi mirada creativa, mi capacidad para integrarme a equipos colaborativos y por mantener siempre una actitud de mejora continua. Mi objetivo es seguir creciendo, asumir nuevos desafíos y, en el futuro, emprender con soluciones que aporten valor real y hagan la tecnología más cercana y útil para las personas.
@@ -261,6 +261,41 @@ export default function Home() {
           </div>
           <div className="flex flex-col items-center w-full max-w-4xl min-w-0 md:ml-4 p-4">
             {/* Proyecto 1 */}
+            <div className="flex flex-col md:flex-row items-center bg-white/80 rounded-xl shadow-lg overflow-hidden transition-all duration-300 hover:shadow-[0_0_32px_#64ffda99] hover:scale-[1.025]">
+              <div className="w-full md:w-1/2 h-56 md:h-64 relative min-w-0">
+                <Image
+                  src="/images/deepmatchfoto.png"
+                  alt="DeepMatch"
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                />
+              </div>
+              <div className="w-full md:w-1/2 p-6 flex flex-col justify-center min-w-0">
+                <h4 className="text-2xl font-bold text-[#0a192f] mb-2">DeepMatch</h4>
+                <p className="text-base text-gray-700 mb-4">Plataforma inteligente que utiliza IA para analizar currículums y optimizar la búsqueda laboral, ofreciendo recomendaciones personalizadas, perfiles profesionales optimizados y conexión con múltiples plataformas de empleo. Desarrollada con Next.js, Groq, FastAPI y Tailwind CSS.</p>
+                <div className="flex gap-4">
+                  <span className="px-4 py-2 border border-[#0a192f] text-[#0a192f] rounded-md bg-[#64ffda]/20 font-mono flex items-center gap-2">
+                    <span className="relative flex h-3 w-3">
+                      <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#64ffda] opacity-75"></span>
+                      <span className="relative inline-flex rounded-full h-3 w-3 bg-[#64ffda]"></span>
+                    </span>
+                    En Desarrollo
+                  </span>
+                  <a
+                    href="https://github.com/benjaghv/DeepMatch"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="px-4 py-2 border border-[#0a192f] text-[#0a192f] rounded-md hover:bg-[#112240] hover:text-[#64ffda] transition-all font-medium"
+                  >
+                    GitHub
+                  </a>
+                </div>
+              </div>
+            </div>
+            {/* Línea de conexión entre proyectos */}
+            <div className="w-1 h-12 md:h-20 bg-[#64ffda] my-2"></div>
+            {/* Proyecto 2 */}
             <div className="flex flex-col md:flex-row-reverse items-center bg-white/80 rounded-xl shadow-lg overflow-hidden transition-all duration-300 hover:shadow-[0_0_32px_#64ffda99] hover:scale-[1.025]">
               <div className="w-full md:w-1/2 h-56 md:h-64 relative min-w-0">
                 <Image
@@ -295,7 +330,7 @@ export default function Home() {
             </div>
             {/* Línea de conexión entre proyectos */}
             <div className="w-1 h-12 md:h-20 bg-[#64ffda] my-2"></div>
-            {/* Proyecto 2 */}
+            {/* Proyecto 3 */}
             <div className="flex flex-col md:flex-row items-center bg-white/80 rounded-xl shadow-lg overflow-hidden transition-all duration-300 hover:shadow-[0_0_32px_#64ffda99] hover:scale-[1.025]">
               <div className="w-full md:w-1/2 h-48 md:h-56 relative min-w-0">
                 <Image
@@ -331,7 +366,7 @@ export default function Home() {
             </div>
             {/* Línea de conexión entre proyectos */}
             <div className="w-1 h-12 md:h-20 bg-[#64ffda] my-2"></div>
-            {/* Proyecto 3 */}
+            {/* Proyecto 4 */}
             <div className="flex flex-col md:flex-row-reverse items-center bg-white/80 rounded-xl shadow-lg overflow-hidden transition-all duration-300 hover:shadow-[0_0_32px_#64ffda99] hover:scale-[1.025]">
               <div className="w-full md:w-1/2 h-56 md:h-64 relative min-w-0">
                 <Image
