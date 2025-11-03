@@ -20,6 +20,17 @@ export const en = {
     paragraph2: "I stand out for my creative vision, ability to integrate into collaborative teams, and maintaining a continuous improvement mindset. My goal is to keep growing, take on new challenges, and in the future, build ventures with solutions that provide real value and make technology more accessible and useful for people.",
     paragraph3: "Beyond technology, I find inspiration in music, nature, and sports, which help me maintain balance, free ideas, and fuel my creativity. I enjoy connecting with authentic people, learning from different areas, and enjoying both good conversations and technical challenges.",
     skills: "Skills",
+    languages: "Languages",
+    languageNames: {
+      spanish: "Spanish",
+      english: "English",
+      german: "German"
+    },
+    languageLevels: {
+      native: "Native",
+      advanced: "Advanced",
+      intermediate: "Intermediate"
+    },
     imageAlt: "Benjamín García-Huidobro"
   },
   projects: {

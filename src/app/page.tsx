@@ -205,6 +205,30 @@ export default function Home() {
                 ))}
               </div>
             </div>
+            {/* Languages Section */}
+            <div className="mt-8">
+              <h4 className="text-[#64ffda] text-base font-mono mb-3 text-center">{t.about.languages}</h4>
+              <div className="flex flex-wrap gap-4 justify-center">
+                {/* Spanish */}
+                <div className="flex items-center gap-2 px-4 py-2 rounded-full border border-[#64ffda] text-[#64ffda] bg-[#0a192f]/80 font-mono text-sm shadow-[0_0_8px_#64ffda99] backdrop-blur-sm hover:scale-105 transition-transform">
+                  <img src="https://flagcdn.com/es.svg" alt={t.about.languageNames.spanish} className="w-6 h-4 rounded-sm" />
+                  <span>{t.about.languageNames.spanish}</span>
+                  <span className="text-xs text-slate-400">({t.about.languageLevels.native})</span>
+                </div>
+                {/* English */}
+                <div className="flex items-center gap-2 px-4 py-2 rounded-full border border-[#64ffda] text-[#64ffda] bg-[#0a192f]/80 font-mono text-sm shadow-[0_0_8px_#64ffda99] backdrop-blur-sm hover:scale-105 transition-transform">
+                  <img src="https://flagcdn.com/us.svg" alt={t.about.languageNames.english} className="w-6 h-4 rounded-sm" />
+                  <span>{t.about.languageNames.english}</span>
+                  <span className="text-xs text-slate-400">({t.about.languageLevels.advanced})</span>
+                </div>
+                {/* German */}
+                <div className="flex items-center gap-2 px-4 py-2 rounded-full border border-[#64ffda] text-[#64ffda] bg-[#0a192f]/80 font-mono text-sm shadow-[0_0_8px_#64ffda99] backdrop-blur-sm hover:scale-105 transition-transform">
+                  <img src="https://flagcdn.com/de.svg" alt={t.about.languageNames.german} className="w-6 h-4 rounded-sm" />
+                  <span>{t.about.languageNames.german}</span>
+                  <span className="text-xs text-slate-400">({t.about.languageLevels.intermediate})</span>
+                </div>
+              </div>
+            </div>
           </div>
           <div className="md:w-1/3 flex justify-center">
             <div className="relative group">

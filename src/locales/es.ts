@@ -20,6 +20,17 @@ export const es = {
     paragraph2: "Me destaco por mi mirada creativa, mi capacidad para integrarme a equipos colaborativos y por mantener siempre una actitud de mejora continua. Mi objetivo es seguir creciendo, asumir nuevos desafíos y, en el futuro, emprender con soluciones que aporten valor real y hagan la tecnología más cercana y útil para las personas.",
     paragraph3: "Además de la tecnología, encuentro inspiración en la música, la naturaleza y el deporte, que me ayudan a mantener el equilibrio, liberar ideas y alimentar mi creatividad. Me gusta conectar con personas auténticas, aprender de distintas áreas y disfrutar tanto de una buena conversación como de un reto técnico.",
     skills: "Conocimientos",
+    languages: "Idiomas",
+    languageNames: {
+      spanish: "Español",
+      english: "Inglés",
+      german: "Alemán"
+    },
+    languageLevels: {
+      native: "Nativo",
+      advanced: "Avanzado",
+      intermediate: "Intermedio"
+    },
     imageAlt: "Benjamín García-Huidobro"
   },
   projects: {
