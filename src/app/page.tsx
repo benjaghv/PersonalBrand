@@ -4,8 +4,11 @@ import Image from "next/image";
 import { FaGithub, FaLinkedin, FaEnvelope, FaChevronRight, FaChevronLeft } from "react-icons/fa";
 import { useState } from "react";
 import emailjs from '@emailjs/browser';
+import { useLanguage } from '@/contexts/LanguageContext';
+import LanguageSwitch from '@/components/LanguageSwitch';
 
 export default function Home() {
+  const { t } = useLanguage();
   const [menuOpen, setMenuOpen] = useState(false);
   const [showGallery, setShowGallery] = useState(false);
   const [currentPhoto, setCurrentPhoto] = useState(0);
@@ -59,14 +62,14 @@ export default function Home() {
 
       setSubmitStatus({
         type: 'success',
-        message: '¡Mensaje enviado con éxito! Te responderé pronto.'
+        message: t.contact.successMessage
       });
       setFormData({ name: '', email: '', message: '' });
     } catch (err) {
       console.error('Error al enviar el mensaje:', err);
       setSubmitStatus({
         type: 'error',
-        message: 'Hubo un error al enviar el mensaje. Por favor, intenta de nuevo.'
+        message: t.contact.errorMessage
       });
     } finally {
       setIsSubmitting(false);
@@ -91,7 +94,7 @@ export default function Home() {
           &lt;BGH/&gt;
         </div>
         {/* Desktop Nav */}
-        <div className="hidden md:flex gap-8 text-base font-mono">
+        <div className="hidden md:flex gap-8 text-base font-mono items-center">
           <a
             className="nav-link hover:text-[#64ffda] transition-colors cursor-pointer"
             onClick={e => { 
@@ -102,18 +105,20 @@ export default function Home() {
             role="button"
             tabIndex={0}
           >
-            Inicio
+            {t.nav.home}
           </a>
-          <a href="#about" className="nav-link hover:text-[#64ffda] transition-colors">Sobre mí</a>
-          <a href="#projects" className="nav-link hover:text-[#64ffda] transition-colors">Proyectos</a>
-          <a href="#contact" className="nav-link hover:text-[#64ffda] transition-colors">Contacto</a>
+          <a href="#about" className="nav-link hover:text-[#64ffda] transition-colors">{t.nav.about}</a>
+          <a href="#projects" className="nav-link hover:text-[#64ffda] transition-colors">{t.nav.projects}</a>
+          <a href="#contact" className="nav-link hover:text-[#64ffda] transition-colors">{t.nav.contact}</a>
+          <LanguageSwitch />
         </div>
         {/* Mobile Nav */}
-        <div className="md:hidden">
+        <div className="md:hidden flex items-center gap-3">
+          <LanguageSwitch />
           <button
             className="flex flex-col justify-center items-center w-10 h-10 focus:outline-none"
             onClick={() => setMenuOpen(!menuOpen)}
-            aria-label="Abrir menú"
+            aria-label={t.nav.menuAriaLabel}
           >
             <span className={`block w-7 h-0.5 bg-[#64ffda] mb-1.5 transition-all ${menuOpen ? 'rotate-45 translate-y-2' : ''}`}></span>
             <span className={`block w-7 h-0.5 bg-[#64ffda] mb-1.5 transition-all ${menuOpen ? 'opacity-0' : ''}`}></span>
@@ -134,11 +139,11 @@ export default function Home() {
               role="button"
               tabIndex={0}
             >
-              Inicio
+              {t.nav.home}
             </a>
-            <a href="#about" className="nav-link text-lg font-mono text-[#64ffda] hover:underline" onClick={() => setMenuOpen(false)}>Sobre mí</a>
-            <a href="#projects" className="nav-link text-lg font-mono text-[#64ffda] hover:underline" onClick={() => setMenuOpen(false)}>Proyectos</a>
-            <a href="#contact" className="nav-link text-lg font-mono text-[#64ffda] hover:underline" onClick={() => setMenuOpen(false)}>Contacto</a>
+            <a href="#about" className="nav-link text-lg font-mono text-[#64ffda] hover:underline" onClick={() => setMenuOpen(false)}>{t.nav.about}</a>
+            <a href="#projects" className="nav-link text-lg font-mono text-[#64ffda] hover:underline" onClick={() => setMenuOpen(false)}>{t.nav.projects}</a>
+            <a href="#contact" className="nav-link text-lg font-mono text-[#64ffda] hover:underline" onClick={() => setMenuOpen(false)}>{t.nav.contact}</a>
           </div>
         )}
       </nav>
@@ -153,23 +158,23 @@ export default function Home() {
 
         {/* Hero Section */}
         <section className="w-full min-h-screen flex flex-col items-center justify-start text-center px-4 mt-6 md:mt-34">
-          <p className="text-lg md:text-xl text-[#64ffda] font-mono mb-2">Hola, mi nombre es</p>
+          <p className="text-lg md:text-xl text-[#64ffda] font-mono mb-2">{t.hero.greeting}</p>
           <h1 className="text-4xl md:text-6xl font-bold mb-2 leading-tight">
             <span className="block md:inline">Benjamín</span>{" "}
             <span className="block md:inline">García-Huidobro</span>
           </h1>
-          <h2 className="text-2xl md:text-4xl font-bold mb-6 text-slate-300">Transformo ideas en soluciones digitales con propósito</h2>
+          <h2 className="text-2xl md:text-4xl font-bold mb-6 text-slate-300">{t.hero.tagline}</h2>
           <p className="max-w-2xl mx-auto text-lg md:text-xl text-slate-400 mb-10">
-          Ingeniero civil informático apasionado por el desarrollo de software, aplicaciones web, ciberseguridad e inteligencia artificial.
+          {t.hero.description}
           </p>
           <div className="flex justify-center mt-4">
             <a
-              href="/images/Currículum_Benjamín_GarcíaHuidobro.docx.pdf"
+              href={t.hero.cvPath}
               target="_blank"
               rel="noopener noreferrer"
               className="px-6 py-3 border border-[#64ffda] text-[#64ffda] rounded-md transition-all font-medium hover:bg-[#112240] hover:text-[#64ffda] hover:scale-105 hover:-translate-y-1 hover:-rotate-3 hover:shadow-[0_8px_24px_#64ffda99]"
             >
-              Ver CV
+              {t.hero.viewCV}
             </a>
           </div>
         </section>
@@ -177,18 +182,18 @@ export default function Home() {
         {/* About Me Section */}
         <section id="about" className="scroll-mt-20 md:scroll-mt-23 w-full flex flex-col md:flex-row items-center justify-center gap-12 px-4 pb-32 -mt-40">
           <div className="md:w-1/2 text-left">
-            <h3 className="text-xl font-mono text-[#64ffda] mb-4">Sobre mí</h3>
+            <h3 className="text-xl font-mono text-[#64ffda] mb-4">{t.about.title}</h3>
             <p className="text-lg text-slate-300 mb-4">
-            Profesional con formación ingenieril y capacidades técnicas, de 25 años, apasionado por resolver problemas reales a través del desarrollo de software, aplicaciones web y herramientas digitales que generen impacto. Me enfoco en crear soluciones que mezclen diseño funcional, inteligencia artificial y una buena experiencia de usuario, siempre con la intención de construir algo útil, innovador y con la capacidad de convertirse en una solución integral, lista para implementarse en el mundo real.
+            {t.about.paragraph1}
             </p>
             <p className="text-lg text-slate-400">
-            Me destaco por mi mirada creativa, mi capacidad para integrarme a equipos colaborativos y por mantener siempre una actitud de mejora continua. Mi objetivo es seguir creciendo, asumir nuevos desafíos y, en el futuro, emprender con soluciones que aporten valor real y hagan la tecnología más cercana y útil para las personas.
+            {t.about.paragraph2}
             </p>
             <p className="text-lg text-slate-400 mt-4">
-            Además de la tecnología, encuentro inspiración en la música, la naturaleza y el deporte, que me ayudan a mantener el equilibrio, liberar ideas y alimentar mi creatividad. Me gusta conectar con personas auténticas, aprender de distintas áreas y disfrutar tanto de una buena conversación como de un reto técnico.
+            {t.about.paragraph3}
             </p>
             <div className="mt-6">
-              <h4 className="text-[#64ffda] text-base font-mono mb-3 text-center">Conocimientos</h4>
+              <h4 className="text-[#64ffda] text-base font-mono mb-3 text-center">{t.about.skills}</h4>
               <div className="flex flex-wrap gap-3 justify-center">
                 {["JavaScript", "TypeScript", "React", "Next.js", "Python", "SQL", "Tailwind CSS", "Git", "React Native"].map((tech) => (
                   <span
@@ -209,7 +214,7 @@ export default function Home() {
               <div className="relative w-48 h-48 md:w-64 md:h-64 rounded-xl overflow-hidden border-2 border-[#64ffda] bg-[#0a192f] shadow-lg transition-all duration-300 group-hover:-translate-y-2 group-hover:-translate-x-2 group-hover:scale-105 group-hover:shadow-[0_8px_24px_#64ffda99]">
                 <Image
                   src={photos[currentPhoto]}
-                  alt="Benjamín García-Huidobro"
+                  alt={t.about.imageAlt}
                   fill
                   className="object-cover transition-opacity duration-300"
                   priority
@@ -248,13 +253,13 @@ export default function Home() {
 
         {/* Projects Section */}
         <section id="projects" className="scroll-mt-20 md:scroll-mt-22 w-full flex flex-col items-center justify-center px-4 pb-25">
-          <h3 className="text-xl font-mono text-[#64ffda] mb-12 text-center">Proyectos</h3>
+          <h3 className="text-xl font-mono text-[#64ffda] mb-12 text-center">{t.projects.title}</h3>
           {/* GitHub Profile Link */}
           <div className="flex flex-col items-center mb-12">
             <a href="https://github.com/benjaghv" target="_blank" rel="noopener noreferrer" className="group relative inline-flex items-center justify-center gap-3 px-6 py-4 h-14 md:h-12 w-full md:w-auto overflow-hidden rounded-full border-2 border-[#64ffda] transition-colors duration-500 hover:text-[#0a192f]">
               <span className="relative z-10 flex items-center justify-center gap-3 text-[#64ffda] group-hover:text-[#0a192f] transition-colors duration-500">
                 <FaGithub size={28} />
-                <span className="font-mono text-lg text-center">Visita mi perfil en GitHub</span>
+                <span className="font-mono text-lg text-center">{t.projects.githubLink}</span>
               </span>
               <div className="absolute -right-40 -bottom-40 h-40 w-40 rounded-full bg-[#64ffda] opacity-0 transition-all duration-700 group-hover:opacity-100 group-hover:scale-[6]"></div>
             </a>
@@ -272,15 +277,15 @@ export default function Home() {
                 />
               </div>
               <div className="w-full md:w-1/2 p-6 flex flex-col justify-center min-w-0">
-                <h4 className="text-2xl font-bold text-[#0a192f] mb-2">DeepMatch</h4>
-                <p className="text-base text-gray-700 mb-4">Plataforma inteligente que utiliza IA para analizar currículums y optimizar la búsqueda laboral, ofreciendo recomendaciones personalizadas, perfiles profesionales optimizados y conexión con múltiples plataformas de empleo. Desarrollada con Next.js, Groq, FastAPI y Tailwind CSS.</p>
+                <h4 className="text-2xl font-bold text-[#0a192f] mb-2">{t.projects.deepmatch.title}</h4>
+                <p className="text-base text-gray-700 mb-4">{t.projects.deepmatch.description}</p>
                 <div className="flex gap-4">
                   <span className="px-4 py-2 border border-[#0a192f] text-[#0a192f] rounded-md bg-[#64ffda]/20 font-mono flex items-center gap-2">
                     <span className="relative flex h-3 w-3">
                       <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#64ffda] opacity-75"></span>
                       <span className="relative inline-flex rounded-full h-3 w-3 bg-[#64ffda]"></span>
                     </span>
-                    En Desarrollo
+                    {t.projects.inDevelopment}
                   </span>
                   <a
                     href="https://github.com/benjaghv/DeepMatch"
@@ -288,7 +293,7 @@ export default function Home() {
                     rel="noopener noreferrer"
                     className="px-4 py-2 border border-[#0a192f] text-[#0a192f] rounded-md hover:bg-[#112240] hover:text-[#64ffda] transition-all font-medium"
                   >
-                    GitHub
+                    {t.projects.github}
                   </a>
                 </div>
               </div>
@@ -307,15 +312,15 @@ export default function Home() {
                 />
               </div>
               <div className="w-full md:w-1/2 p-6 flex flex-col justify-center min-w-0">
-                <h4 className="text-2xl font-bold text-[#0a192f] mb-2">FocusMeet</h4>
-                <p className="text-base text-gray-700 mb-4">Aplicación web potenciada por IA que transforma grabaciones de reuniones en reportes organizados, con resúmenes automáticos, asignación de tareas y decisiones destacadas. Incluye exportación en PDF y opciones para compartir fácilmente. Construida con Next.js, React, TypeScript y Tailwind CSS.</p>
+                <h4 className="text-2xl font-bold text-[#0a192f] mb-2">{t.projects.focusmeet.title}</h4>
+                <p className="text-base text-gray-700 mb-4">{t.projects.focusmeet.description}</p>
                 <div className="flex gap-4">
                   <span className="px-4 py-2 border border-[#0a192f] text-[#0a192f] rounded-md bg-[#64ffda]/20 font-mono flex items-center gap-2">
                     <span className="relative flex h-3 w-3">
                       <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#64ffda] opacity-75"></span>
                       <span className="relative inline-flex rounded-full h-3 w-3 bg-[#64ffda]"></span>
                     </span>
-                    En Desarrollo
+                    {t.projects.inDevelopment}
                   </span>
                   <a
                     href="https://github.com/benjaghv/focusmeet"
@@ -323,7 +328,7 @@ export default function Home() {
                     rel="noopener noreferrer"
                     className="px-4 py-2 border border-[#0a192f] text-[#0a192f] rounded-md hover:bg-[#112240] hover:text-[#64ffda] transition-all font-medium"
                   >
-                    GitHub
+                    {t.projects.github}
                   </a>
                 </div>
               </div>
@@ -342,8 +347,8 @@ export default function Home() {
                 />
               </div>
               <div className="w-full md:w-1/2 p-6 flex flex-col justify-center min-w-0">
-                <h4 className="text-2xl font-bold text-[#0a192f] mb-2">Meditrack</h4>
-                <p className="text-base text-gray-700 mb-4">Plataforma inteligente que utiliza IA para analizar síntomas y entregar diagnósticos rápidos, recomendaciones personalizadas y seguimiento de historial médico. Desarrollada con Next.js, React, TypeScript y CSS.</p>
+                <h4 className="text-2xl font-bold text-[#0a192f] mb-2">{t.projects.meditrack.title}</h4>
+                <p className="text-base text-gray-700 mb-4">{t.projects.meditrack.description}</p>
                 <div className="flex gap-4">
                   <a
                     href="https://meditrack-sepia.vercel.app/"
@@ -351,7 +356,7 @@ export default function Home() {
                     rel="noopener noreferrer"
                     className="px-4 py-2 border border-[#0a192f] text-[#0a192f] rounded-md hover:bg-[#112240] hover:text-[#64ffda] transition-all font-medium"
                   >
-                    Ver Proyecto
+                    {t.projects.viewProject}
                   </a>
                   <a
                     href="https://github.com/benjaghv/Meditrack"
@@ -359,7 +364,7 @@ export default function Home() {
                     rel="noopener noreferrer"
                     className="px-4 py-2 border border-[#0a192f] text-[#0a192f] rounded-md hover:bg-[#112240] hover:text-[#64ffda] transition-all font-medium"
                   >
-                    GitHub
+                    {t.projects.github}
                   </a>
                 </div>
               </div>
@@ -378,9 +383,9 @@ export default function Home() {
                 />
               </div>
               <div className="w-full md:w-1/2 p-6 flex flex-col justify-center min-w-0">
-                <h4 className="text-2xl font-bold text-[#0a192f] mb-2">Portafolio Personal</h4>
+                <h4 className="text-2xl font-bold text-[#0a192f] mb-2">{t.projects.portfolio.title}</h4>
                 <p className="text-base text-gray-700 mb-4">
-  Portfolio personal desarrollado con Next.js, Tailwind CSS y TypeScript. Es totalmente responsive y de código abierto. Puedes verlo en GitHub.
+  {t.projects.portfolio.description}
 </p>
 
                 <div className="flex gap-4">
@@ -393,11 +398,11 @@ export default function Home() {
                     }}
                     className="px-4 py-2 border border-[#0a192f] text-[#0a192f] rounded-md hover:bg-[#112240] hover:text-[#64ffda] transition-all font-medium"
                   >
-                    Ver Proyecto
+                    {t.projects.viewProject}
                   </a>
                   {showPortfolioMessage && (
                     <div className="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-[#64ffda] text-[#0a192f] px-6 py-3 rounded-lg shadow-lg animate-bounce z-50 text-center max-w-[90%] mx-auto">
-                      <p className="text-lg font-mono">¡Lo estás viendo! 😄</p>
+                      <p className="text-lg font-mono">{t.projects.portfolioMessage}</p>
                       
                     </div>
                   )}
@@ -407,7 +412,7 @@ export default function Home() {
                     rel="noopener noreferrer"
                     className="px-4 py-2 border border-[#0a192f] text-[#0a192f] rounded-md hover:bg-[#112240] hover:text-[#64ffda] transition-all font-medium"
                   >
-                    GitHub
+                    {t.projects.github}
                   </a>
                 </div>
               </div>
@@ -418,7 +423,7 @@ export default function Home() {
 
         {/* Contact Section */}
         <section id="contact" className="scroll-mt-20 md:scroll-mt-22 w-full flex flex-col items-center justify-center px-4 pb-18 md:mb-5">
-          <h3 className="text-xl font-mono text-[#64ffda] mb-6 md:mb-8 text-center">Contacto</h3>
+          <h3 className="text-xl font-mono text-[#64ffda] mb-6 md:mb-8 text-center">{t.contact.title}</h3>
           <form onSubmit={handleSubmit} className="w-full max-w-lg bg-[#0a192f]/80 rounded-xl p-4 md:p-8 flex flex-col gap-3 md:gap-6 border border-[#64ffda] shadow-lg">
             <div className="form__group field">
               <input
@@ -427,10 +432,10 @@ export default function Home() {
                 value={formData.name}
                 onChange={handleChange}
                 className="form__field"
-                placeholder="Nombre"
+                placeholder={t.contact.name}
                 required
               />
-              <label className="form__label">Nombre</label>
+              <label className="form__label">{t.contact.name}</label>
             </div>
             <div className="form__group field">
               <input
@@ -439,10 +444,10 @@ export default function Home() {
                 value={formData.email}
                 onChange={handleChange}
                 className="form__field"
-                placeholder="Email"
+                placeholder={t.contact.email}
                 required
               />
-              <label className="form__label">Email</label>
+              <label className="form__label">{t.contact.email}</label>
             </div>
             <div className="form__group field">
               <textarea
@@ -450,11 +455,11 @@ export default function Home() {
                 value={formData.message}
                 onChange={handleChange}
                 className="form__field"
-                placeholder="Mensaje"
+                placeholder={t.contact.message}
                 rows={3}
                 required
               />
-              <label className="form__label">Mensaje</label>
+              <label className="form__label">{t.contact.message}</label>
             </div>
             {submitStatus.message && (
               <div className={`text-sm ${submitStatus.type === 'success' ? 'text-green-400' : 'text-red-400'}`}>
@@ -466,14 +471,14 @@ export default function Home() {
               disabled={isSubmitting}
               className="self-end px-6 py-2 border border-[#64ffda] text-[#64ffda] rounded-md hover:bg-[#64ffda] hover:text-[#0a192f] transition-all font-medium disabled:opacity-50 disabled:cursor-not-allowed"
             >
-              {isSubmitting ? 'Enviando...' : 'Enviar'}
+              {isSubmitting ? t.contact.sending : t.contact.send}
             </button>
           </form>
         </section>
 
         {/* Footer */}
         <footer className="w-full py-6 bg-[#0a192f] text-center text-sm text-[#64ffda] font-mono border-t border-[#112240]">
-          Por Benjamín García-Huidobro © 2025 <img src="https://flagcdn.com/cl.svg" alt="Bandera de Chile" className="w-5 h-4 inline-block ml-2" />
+          {t.footer.by} <img src="https://flagcdn.com/cl.svg" alt="Bandera de Chile" className="w-5 h-4 inline-block ml-2" />
         </footer>
       </main>
 
