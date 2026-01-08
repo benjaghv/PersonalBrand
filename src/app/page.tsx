@@ -97,9 +97,9 @@ export default function Home() {
         <div className="hidden md:flex gap-8 text-base font-mono items-center">
           <a
             className="nav-link hover:text-[#64ffda] transition-colors cursor-pointer"
-            onClick={e => { 
-              e.preventDefault(); 
-              window.scrollTo({ top: 0, behavior: 'smooth' }); 
+            onClick={e => {
+              e.preventDefault();
+              window.scrollTo({ top: 0, behavior: 'smooth' });
               window.history.pushState({}, '', '/');
             }}
             role="button"
@@ -130,11 +130,11 @@ export default function Home() {
           <div className="absolute top-full right-4 mt-2 bg-[#112240] border border-[#64ffda] rounded-lg shadow-lg flex flex-col items-end p-6 gap-4 z-50 animate-fade-in md:hidden">
             <a
               className="nav-link text-lg font-mono text-[#64ffda] hover:underline cursor-pointer"
-              onClick={e => { 
-                e.preventDefault(); 
-                window.scrollTo({ top: 0, behavior: 'smooth' }); 
+              onClick={e => {
+                e.preventDefault();
+                window.scrollTo({ top: 0, behavior: 'smooth' });
                 window.history.pushState({}, '', '/');
-                setMenuOpen(false); 
+                setMenuOpen(false);
               }}
               role="button"
               tabIndex={0}
@@ -165,7 +165,7 @@ export default function Home() {
           </h1>
           <h2 className="text-2xl md:text-4xl font-bold mb-6 text-slate-300">{t.hero.tagline}</h2>
           <p className="max-w-2xl mx-auto text-lg md:text-xl text-slate-400 mb-10">
-          {t.hero.description}
+            {t.hero.description}
           </p>
           <div className="flex justify-center mt-4">
             <a
@@ -184,13 +184,13 @@ export default function Home() {
           <div className="md:w-1/2 text-left">
             <h3 className="text-xl font-mono text-[#64ffda] mb-4">{t.about.title}</h3>
             <p className="text-lg text-slate-300 mb-4">
-            {t.about.paragraph1}
+              {t.about.paragraph1}
             </p>
             <p className="text-lg text-slate-400">
-            {t.about.paragraph2}
+              {t.about.paragraph2}
             </p>
             <p className="text-lg text-slate-400 mt-4">
-            {t.about.paragraph3}
+              {t.about.paragraph3}
             </p>
             <div className="mt-6">
               <h4 className="text-[#64ffda] text-base font-mono mb-3 text-center">{t.about.skills}</h4>
@@ -264,9 +264,8 @@ export default function Home() {
                   {photos.map((_, index) => (
                     <div
                       key={index}
-                      className={`w-2 h-2 rounded-full transition-all duration-300 ${
-                        currentPhoto === index ? 'bg-[#64ffda] scale-125' : 'bg-[#64ffda]/50'
-                      }`}
+                      className={`w-2 h-2 rounded-full transition-all duration-300 ${currentPhoto === index ? 'bg-[#64ffda] scale-125' : 'bg-[#64ffda]/50'
+                        }`}
                     />
                   ))}
                 </div>
@@ -409,8 +408,8 @@ export default function Home() {
               <div className="w-full md:w-1/2 p-6 flex flex-col justify-center min-w-0">
                 <h4 className="text-2xl font-bold text-[#0a192f] mb-2">{t.projects.portfolio.title}</h4>
                 <p className="text-base text-gray-700 mb-4">
-  {t.projects.portfolio.description}
-</p>
+                  {t.projects.portfolio.description}
+                </p>
 
                 <div className="flex gap-4">
                   <a
@@ -427,7 +426,7 @@ export default function Home() {
                   {showPortfolioMessage && (
                     <div className="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-[#64ffda] text-[#0a192f] px-6 py-3 rounded-lg shadow-lg animate-bounce z-50 text-center max-w-[90%] mx-auto">
                       <p className="text-lg font-mono">{t.projects.portfolioMessage}</p>
-                      
+
                     </div>
                   )}
                   <a
@@ -441,7 +440,42 @@ export default function Home() {
                 </div>
               </div>
             </div>
-            {/* Puedes duplicar el bloque anterior para más proyectos */}
+            {/* Línea de conexión entre proyectos */}
+            <div className="w-1 h-12 md:h-20 bg-[#64ffda] my-2"></div>
+            {/* Proyecto 5 - Nexus Hub */}
+            <div className="flex flex-col md:flex-row items-center bg-white/80 rounded-xl shadow-lg overflow-hidden transition-all duration-300 hover:shadow-[0_0_32px_#64ffda99] hover:scale-[1.025]">
+              <div className="w-full md:w-1/2 h-56 md:h-64 relative min-w-0">
+                <Image
+                  src="/images/nexusHubHome.png"
+                  alt="Nexus Hub"
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                />
+              </div>
+              <div className="w-full md:w-1/2 p-6 flex flex-col justify-center min-w-0">
+                <h4 className="text-2xl font-bold text-[#0a192f] mb-2">{t.projects.nexushub.title}</h4>
+                <p className="text-base text-gray-700 mb-4">{t.projects.nexushub.description}</p>
+                <div className="flex gap-4">
+                  <a
+                    href="https://nexus-project-production-6be8.up.railway.app/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="px-4 py-2 border border-[#0a192f] text-[#0a192f] rounded-md hover:bg-[#112240] hover:text-[#64ffda] transition-all font-medium"
+                  >
+                    {t.projects.viewProject}
+                  </a>
+                  <a
+                    href="https://github.com/benjaghv/nexus-project"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="px-4 py-2 border border-[#0a192f] text-[#0a192f] rounded-md hover:bg-[#112240] hover:text-[#64ffda] transition-all font-medium"
+                  >
+                    {t.projects.github}
+                  </a>
+                </div>
+              </div>
+            </div>
           </div>
         </section>
 

@@ -55,6 +55,10 @@ export const en = {
     portfolio: {
       title: "Personal Portfolio",
       description: "Personal portfolio developed with Next.js, Tailwind CSS, and TypeScript. It's fully responsive and open source. You can check it out on GitHub."
+    },
+    nexushub: {
+      title: "Nexus Hub",
+      description: "Centralized webhook interceptor and monitor that captures, stores, and visualizes any incoming API request in real-time. Provides instant observability of data flow between systems, ideal for validating integrations and data formats. Built with FastAPI, WebSockets, SQLite, SQLAlchemy, Tailwind CSS, and Docker."
     }
   },
   contact: {
@@ -68,6 +72,6 @@ export const en = {
     errorMessage: "There was an error sending the message. Please try again."
   },
   footer: {
-    by: "By Benjamín García-Huidobro © 2025"
+    by: "By Benjamín García-Huidobro © 2026"
   }
 };
