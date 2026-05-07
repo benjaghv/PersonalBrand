@@ -44,9 +44,9 @@ export const es = {
       title: "DeepMatch",
       description: "Plataforma inteligente que utiliza IA para analizar currículums y optimizar la búsqueda laboral, ofreciendo recomendaciones personalizadas, perfiles profesionales optimizados y conexión con múltiples plataformas de empleo. Desarrollada con Next.js, Groq, FastAPI y Tailwind CSS."
     },
-    focusmeet: {
-      title: "FocusMeet",
-      description: "Aplicación web potenciada por IA que transforma grabaciones de reuniones en reportes organizados, con resúmenes automáticos, asignación de tareas y decisiones destacadas. Incluye exportación en PDF y opciones para compartir fácilmente. Construida con Next.js, React, TypeScript y Tailwind CSS."
+    fastask: {
+      title: "Fastask",
+      description: "Aplicación de gestión de tareas keyboard-first que permite organizar, priorizar y ejecutar tareas por contextos con estimaciones de tiempo y subtareas. Diseñada como PWA instalable en móvil y escritorio, con autenticación Google y datos persistentes por usuario. Desarrollada con Next.js, Auth.js, Neon Postgres y Tailwind CSS."
     },
     meditrack: {
       title: "Meditrack",

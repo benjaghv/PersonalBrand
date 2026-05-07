@@ -327,26 +327,27 @@ export default function Home() {
             <div className="flex flex-col md:flex-row-reverse items-center bg-white/80 rounded-xl shadow-lg overflow-hidden transition-all duration-300 hover:shadow-[0_0_32px_#64ffda99] hover:scale-[1.025]">
               <div className="w-full md:w-1/2 h-56 md:h-64 relative min-w-0">
                 <Image
-                  src="/images/focusmeethome.png"
-                  alt="Proyecto 1"
+                  src="/images/fastask-foto.jpg"
+                  alt="FastAsk"
                   fill
                   className="object-cover"
                   sizes="(max-width: 768px) 100vw, 50vw"
                 />
               </div>
               <div className="w-full md:w-1/2 p-6 flex flex-col justify-center min-w-0">
-                <h4 className="text-2xl font-bold text-[#0a192f] mb-2">{t.projects.focusmeet.title}</h4>
-                <p className="text-base text-gray-700 mb-4">{t.projects.focusmeet.description}</p>
+                <h4 className="text-2xl font-bold text-[#0a192f] mb-2">{t.projects.fastask.title}</h4>
+                <p className="text-base text-gray-700 mb-4">{t.projects.fastask.description}</p>
                 <div className="flex gap-4">
-                  <span className="px-4 py-2 border border-[#0a192f] text-[#0a192f] rounded-md bg-[#64ffda]/20 font-mono flex items-center gap-2">
-                    <span className="relative flex h-3 w-3">
-                      <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#64ffda] opacity-75"></span>
-                      <span className="relative inline-flex rounded-full h-3 w-3 bg-[#64ffda]"></span>
-                    </span>
-                    {t.projects.inDevelopment}
-                  </span>
                   <a
-                    href="https://github.com/benjaghv/focusmeet"
+                    href="https://fastask-theta.vercel.app/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="px-4 py-2 border border-[#0a192f] text-[#0a192f] rounded-md hover:bg-[#112240] hover:text-[#64ffda] transition-all font-medium"
+                  >
+                    {t.projects.viewProject}
+                  </a>
+                  <a
+                    href="https://github.com/benjaghv/fastask"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="px-4 py-2 border border-[#0a192f] text-[#0a192f] rounded-md hover:bg-[#112240] hover:text-[#64ffda] transition-all font-medium"
@@ -363,7 +364,7 @@ export default function Home() {
               <div className="w-full md:w-1/2 h-48 md:h-56 relative min-w-0">
                 <Image
                   src="/images/HomePageMediTrack.png"
-                  alt="Proyecto 2"
+                  alt="MediTrack"
                   fill
                   className="object-cover"
                   sizes="(max-width: 768px) 100vw, 50vw"
@@ -399,7 +400,7 @@ export default function Home() {
               <div className="w-full md:w-1/2 h-56 md:h-64 relative min-w-0">
                 <Image
                   src="/images/HomeLanding.png"
-                  alt="Proyecto 3"
+                  alt="Portfolio"
                   fill
                   className="object-cover"
                   sizes="(max-width: 768px) 100vw, 50vw"
